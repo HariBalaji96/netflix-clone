@@ -5,15 +5,16 @@ import { useState } from "react";
 const Movie = ({ movie }) => {
   const [like, setLike] = useState(false);
   return (
-    <div className="relative p-2 inline-block w-[140px] h-[240px]">
+    <div className="relative h-full inline-block w-[140px] mx-2">
       <img
         src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
         alt={movie.original_title}
+        className="rounded-md shadow-2xl"
       />
-      <div className="top-0 left-0 p-2 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white absolute cursor-pointer">
+      <div className="top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white absolute cursor-pointer">
         <span className="flex m-2">{like ? <FaHeart /> : <FaRegHeart />}</span>
-        <p className="flex justify-center items-center h-full max-w-[140px] break-words">
-          {movie.original_title}
+        <p className="flex justify-center items-center h-full">
+          {"IMDB : " + movie.vote_average + " (" + movie.vote_count + ")"}
         </p>
       </div>
     </div>

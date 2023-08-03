@@ -17,7 +17,7 @@ const Main = () => {
     fetchMovies();
   }, []);
   return (
-    <div className="w-full h-[600px] sm:h-[550px]">
+    <div className="w-full h-[600px] sm:h-[550px] mb-5">
       <div className="absolute w-full h-[600px] sm:h-[550px] bg-gradient-to-br from-black"></div>
       <div className="w-full h-full">
         <img
@@ -31,7 +31,7 @@ const Main = () => {
           {movies.original_title}
         </h1>
         <p className="mx-5 mb-2 text-gray-200 ">
-          IMDb : {movies.vote_average}&#40;{movies.vote_count}&#41;
+          IMDB : {movies.vote_average}&#40;{movies.vote_count}&#41;
         </p>
         <p className="mx-5  mb-4 text-gray-200 ">
           Released : {movies.release_date}
