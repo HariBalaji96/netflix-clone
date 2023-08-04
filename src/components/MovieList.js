@@ -17,13 +17,13 @@ const MovieList = ({ fetchURL, title }) => {
   return (
     <div className="p-5">
       <h1 className="text-white text-4xl font-bold font-serif mb-4">{title}</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-32  gap-y-12 mx-auto">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-20  gap-y-12 mx-auto">
         {movies.map((movie) => (
           <div key={movie.id} className="inline-block relative">
             <img
               src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
               alt={movie.title}
-              className="border-none rounded-lg h-72 mx-auto"
+              className="border-none rounded-lg h-[240px] mx-auto"
             />
             <p className="text-white text-center">{movie.title}</p>
             <div className="top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white absolute cursor-pointer">
