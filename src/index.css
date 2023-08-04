@@ -8,3 +8,6 @@ body {
   background-color: #000000;
   font-family: "Lato", sans-serif;
 }
+#mobileMenu {
+  display: none;
+}

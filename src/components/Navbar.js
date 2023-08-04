@@ -2,6 +2,18 @@ import React from "react";
 import { BiMenu } from "react-icons/bi";
 import { Link } from "react-router-dom";
 const Navbar = () => {
+  const handleMenu = () => {
+    const menu = document.getElementById("mobileMenu");
+    if (menu.style.display == "none") {
+      menu.style.display = "block";
+    } else {
+      menu.style.display = "none";
+    }
+  };
+  const handleHide = () => {
+    const menu = document.getElementById("mobileMenu");
+    menu.style.display = "none";
+  };
   return (
     <nav className="flex p-1 md:p-2 z-[100] w-full absolute">
       <div className="cursor-pointer m-2">
@@ -45,31 +57,51 @@ const Navbar = () => {
 
       {/* This is for Mobile Menu */}
       <div className="text-white flex items-center lg:hidden ml-auto pr-2">
-        <BiMenu size={48} />
+        <BiMenu size={48} onClick={handleMenu} />
       </div>
-      <ul className=" text-white hidden">
-        <li className="cursor-pointer flex items-center hover:underline font-semibold ">
-          Sign In
-        </li>
-        <li className="cursor-pointer flex items-center hover:underline font-semibold ">
-          Sign Up
-        </li>
-        <Link to="/">
-          <li className="cursor-pointer flex items-center hover:underline font-semibold ">
-            Home
+      <div
+        className="bg-red-600 h-screen absolute right-0 z-[-1] top-0"
+        id="mobileMenu"
+      >
+        <ul className=" text-white mt-16">
+          <li
+            className="p-8 shadow-2xl mb-1 text-center cursor-pointer flex items-center hover:underline font-semibold "
+            onClick={handleHide}
+          >
+            Sign In
           </li>
-        </Link>
-        <Link to="/movies">
-          <li className="cursor-pointer flex items-center hover:underline font-semibold ">
-            Movies
+          <li
+            className="p-8 shadow-2xl mb-1 text-center cursor-pointer flex items-center hover:underline font-semibold "
+            onClick={handleHide}
+          >
+            Sign Up
           </li>
-        </Link>
-        <Link to="/popular">
-          <li className="cursor-pointer  flex items-center hover:underline font-semibold ">
-            New & Popular
-          </li>
-        </Link>
-      </ul>
+          <Link to="/">
+            <li
+              className="p-8 shadow-2xl mb-1 text-center cursor-pointer flex items-center hover:underline font-semibold "
+              onClick={handleHide}
+            >
+              Home
+            </li>
+          </Link>
+          <Link to="/movies">
+            <li
+              className="p-8 shadow-2xl mb-1 text-center cursor-pointer flex items-center hover:underline font-semibold "
+              onClick={handleHide}
+            >
+              Movies
+            </li>
+          </Link>
+          <Link to="/popular">
+            <li
+              className="p-8 shadow-2xl mb-1 text-center cursor-pointer  flex items-center hover:underline font-semibold "
+              onClick={handleHide}
+            >
+              New & Popular
+            </li>
+          </Link>
+        </ul>
+      </div>
     </nav>
   );
 };
